@@ -1,23 +1,31 @@
-import logo from './logo.svg';
-import './App.css';
+import "./styles/partials/_global.scss";
+import "./styles/App.scss";
+import Header from "./components/Header/Header";
+import VideoPlayer from "./components/VideoPlayer/VideoPlayer";
+import { videoSrc } from "./components/VideoPlayer/VideoPlayer";
+
 
 function App() {
+
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <Header></Header>
+      <main className="main">
+      <VideoPlayer></VideoPlayer>
+        <section className="main--desktop-view">
+          <section className="main-video-section">
+            <section className="video-description">
+              this is where the video title, video info, video description will
+              go
+            </section>
+            <section className="comments">this is the comments section</section>
+          </section>
+          <aside className="next-videos">
+            this is where the list of next videos will go
+          </aside>
+        </section>
+      </main>
     </div>
   );
 }

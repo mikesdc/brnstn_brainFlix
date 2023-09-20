@@ -1,0 +1,36 @@
+@use "variables" as *;
+
+@mixin media-size($screenSize) {
+  @media only screen and (min-width: $screenSize) {
+    @content;
+  }
+}
+
+// Target display sizes:
+// Mobile  - marked at 360px (767px and below)
+// Tablet  - marked at 768px (768px to 1279px)
+// Desktop - marked at 1280px (1280px and above)
+
+@mixin tablet {
+  @media only screen and (min-width: 768px) {
+    @content;
+  }
+}
+
+@mixin desktop {
+  @media only screen and (min-width: 1280px) {
+    @content;
+  }
+}
+
+@mixin mobile-to-tablet {
+  @media only screen and (min-width: 500px) and (max-width: 767px) {
+    @content;
+  }
+}
+
+@mixin flex-center-center {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
