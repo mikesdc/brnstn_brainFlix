@@ -4,5 +4,94 @@
 @import "../../styles/partials/global";
 
 .video-player video {
-    width: 100%;
+  width: 100%;
+}
+
+.details {
+  padding: 1rem;
+
+  &__title {
+    color: $black;
+    font-size: 1.5rem;
+    padding-bottom: 0.8rem;
+    border-bottom: 1.4px solid $mercury;
+  }
+
+  &__stats {
+    padding: 1rem 0;
+    border-bottom: 1.4px solid $mercury;
+    font-size: 0.82rem;
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    flex-wrap: wrap;
+
+    img {
+      margin-right: 1rem;
+    }
+  }
+
+  &__date,
+  &__likes {
+    order: 1;
+    padding-top: 0.8rem;
+  }
+
+  &__channel,
+  &__date {
+    width: 9rem;
+  }
+
+  &__likes,
+  &__views,
+  &__date {
+    color: $silver;
+    display: flex;
+    align-items: center;
+  }
+
+  &__channel {
+    font-weight: 700;
+    color: $black;
+  }
+
+  &__description {
+    padding: 1rem 0;
+    font-size: 0.805rem;
+    line-height: 1.1rem;
+    color: $black;
+  }
+
+  &__comments {
+    font-size: 0.8rem;
+    font-weight: 700;
+    color: $black;
+    padding-bottom: 1rem;
+  }
+
+  &__comments-form {
+    &-container {
+      display: flex;
+
+      h1 {
+        font-size: 0.7rem;
+        color: $silver;
+        padding-bottom: 0.25rem;
+      }
+    }
+
+    &-user-img {
+      margin-right: 1rem;
+      margin-top: 1.12rem;
+      flex: 0 0 1;
+
+      img {
+        width: 2.3rem;
+        height: 2.3rem;
+        object-fit: cover;
+        object-position: -0.25rem;
+        border-radius: 50%;
+      }
+    }
+  }
 }

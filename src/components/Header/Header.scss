@@ -16,7 +16,7 @@
 
   &__home-link {
     @include flex-center-center;
-    margin: 1.5rem auto;
+    margin: 0rem auto;
     width: 100vw;
     height: auto;
 
@@ -25,13 +25,14 @@
     }
 
     &-icon {
-      width: 10rem;
+      width: 7rem;
     }
   }
 
   &__search {
     &-bar {
       @include flex-center-center;
+      margin-top: 1rem;
       border: 1px solid $silver;
       border-radius: 0.25rem;
       background-color: $alabaster;
@@ -45,6 +46,7 @@
     }
     &-icon {
       padding: 0.25rem;
+      
     }
     &-field {
       border: none;
@@ -68,8 +70,10 @@
 
     button {
       @include flex-center-center;
-      margin: 1.5rem 0;
-      padding: 1rem 0;
+      font-size: 0.75rem;
+      letter-spacing: 0.03rem;
+      margin-top: 1rem;
+      padding: 0.3rem 0;
       background: $blue;
       color: $white;
       width: 100%;
@@ -80,7 +84,7 @@
 
       img {
         position: absolute;
-        left: 2rem;
+        left: 0.5rem;
       }
     }
   }
@@ -89,9 +93,7 @@
     &-icon {
       @include flex-center-center;
       margin-left: auto;
-      // width: 4rem;
-      // height: 4rem;
-      // border-radius: 50%;
+      margin-top: 1rem;
       flex: 0 0 1;
     }
 
