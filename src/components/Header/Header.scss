@@ -46,7 +46,6 @@
     }
     &-icon {
       padding: 0.25rem;
-      
     }
     &-field {
       border: none;
@@ -54,6 +53,10 @@
       width: 90%;
       background-color: $alabaster;
       outline: none;
+
+      &::placeholder {
+        color: $black;
+      }
     }
   }
 

@@ -6,9 +6,9 @@ import videoData from "../../data/videos.json";
 
 import viewsIcon from "../../assets/icons/views.svg";
 import likesIcon from "../../assets/icons/likes.svg";
+import addCommentIcon from "../../assets/icons/add_comment.svg";
 
 import profilePhoto from "../../assets/images/Mohan-muruge.jpg";
-
 
 console.log("selectedVideo", videoDetails);
 console.log("nextVideos", videoData);
@@ -94,15 +94,15 @@ const VideoPlayer = (props) => {
           {selectedVideo.comments.length} Comments
         </div>
 
-        <div className="details__comments-form-container">
-          <div className="details__comments-form-user-img">
+        <div className="details__add-comment-container">
+          <div className="details__add-comment-user-img">
             <img src={profilePhoto} alt="user avater here" />
           </div>
-          <div className="details__comments-form">
+          <div className="details__add-comment-form-container">
             <h1>JOIN THE CONVERSATION</h1>
-            <input type="text" placeholder="Add a new comment" />
+            <textarea placeholder="Add a new comment" />
             <button>
-              <img src="" alt="comment icon" />
+              <img src={addCommentIcon} alt="comment icon" />
               COMMENT
             </button>
           </div>
@@ -139,12 +139,11 @@ const VideoPlayer = (props) => {
               <img
                 src={video.image}
                 alt="next video image"
-                style={{ width: "10rem" }}
               />
             </div>
-            <div className="next-video__details">
-              <div className="next-video__details-title">{video.title}</div>
-              <div className="next-video__details-channel">{video.channel}</div>
+            <div className="next-videos__details">
+              <div className="next-videos__details-title">{video.title}</div>
+              <div className="next-videos__details-channel">{video.channel}</div>
             </div>
           </div>
         ))}
