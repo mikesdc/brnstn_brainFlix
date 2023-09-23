@@ -3,12 +3,24 @@
 
 @import "../../styles/partials/global";
 
-.video-player video {
-  width: 100%;
+.video-player {
+  @include flex-center-center;
+  background-color: $dark-black;
+
+  video {
+    width: 100vw;
+    @include tablet {
+      height: 24.3rem;
+    }
+  }
 }
 
 .details {
   padding: 0 1rem;
+
+  @include tablet {
+    padding: 0 3rem;
+  }
 
   &__title {
     color: $black;
@@ -16,17 +28,27 @@
     line-height: 2rem;
     padding-top: 0.8rem;
     padding-bottom: 0.8rem;
-    border-bottom: 1.4px solid $mercury;
+    border-bottom: 1px solid $mercury;
+
+    @include tablet {
+      padding-top: 1.8rem;
+      font-size: 2rem;
+      border-bottom: none;
+    }
   }
 
   &__stats {
     padding: 0.9rem 0;
-    border-bottom: 1.4px solid $mercury;
+    border-bottom: 1px solid $mercury;
     font-size: 0.82rem;
     display: flex;
     flex-direction: row;
     justify-content: flex-start;
     flex-wrap: wrap;
+
+    @include tablet {
+      padding: 0.5rem 0;
+    }
 
     img {
       margin-right: 0.8rem;
@@ -41,27 +63,60 @@
     align-items: center;
   }
 
-  &__channel {
-    font-weight: 700;
-    color: $black;
-  }
-
   &__date,
   &__likes {
     order: 1;
     padding-top: 0.8rem;
+
+    @include tablet {
+      padding: 0;
+    }
   }
 
   &__channel,
   &__date {
     width: 9rem;
+
+    @include tablet {
+      width: initial;
+    }
   }
+
+  &__date {
+    @include tablet {
+      order: 1;
+      margin-left: 2rem;
+    }
+  }
+  &__views {
+    @include tablet {
+      order: 1;
+      margin-left: auto;
+      margin-right: 2rem;
+    }
+  }
+
+  &__channel {
+    font-weight: 700;
+    color: $black;
+    @include tablet {
+      font-size: 0.9rem;
+    }
+  }
+
 
   &__description {
     padding: 1.1rem 0;
     font-size: 0.805rem;
     line-height: 1.09rem;
     color: $black;
+
+    @include tablet {
+      padding: 1.7rem 0 2rem 0;
+      font-size: 0.87rem;
+      line-height: 1.3rem;
+    }
+
   }
 
   &__comments {
@@ -69,13 +124,18 @@
     font-weight: 700;
     color: $black;
     padding-bottom: 1rem;
+
+    @include tablet {
+      font-size: 0.88rem;
+      padding-bottom: 1.5rem;
+    }
+
   }
 
   &__add-comment {
     &-container {
       display: flex;
       padding-bottom: 0.8rem;
-      border-bottom: 1px solid $mercury;
     }
 
     &-user-img {
@@ -93,7 +153,7 @@
     }
 
     &-form-container {
-flex: 1;
+      flex: 1;
 
       h1 {
         font-size: 0.75rem;
@@ -103,7 +163,7 @@ flex: 1;
 
       textarea {
         box-sizing: border-box;
-        border: 1px solid $silver;
+        border: 1px solid $mercury;
         outline: none;
         border-radius: 0.25rem;
         padding: 0.8rem;
@@ -149,11 +209,11 @@ flex: 1;
     justify-content: space-between;
     padding: 0.75rem 0;
     width: 100%;
-    border-top: 0.12rem solid $mercury;
+    border-top: 1px solid $mercury;
     font-size: 0.8rem;
 
     &:last-of-type {
-      border-bottom: 0.12rem solid $mercury;
+      border-bottom: 1px solid $mercury;
     }
 
     &-user-img {
