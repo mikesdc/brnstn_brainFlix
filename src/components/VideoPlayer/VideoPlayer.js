@@ -71,81 +71,90 @@ const VideoPlayer = (props) => {
         </video>
       </section>
 
-      <section className="details">
-        <div className="details__title">
-          <h1>{selectedVideo.title}</h1>
-        </div>
-        <div className="details__stats">
-          <div className="details__channel">By {selectedVideo.channel}</div>
-          <div className="details__date">
-            {relativeTimestamp(selectedVideo.timestamp)}
-          </div>
-          <div className="details__views">
-            <img src={viewsIcon} alt="views icon" />
-            {selectedVideo.views}
-          </div>
-          <div className="details__likes">
-            <img src={likesIcon} alt="likes icon" />
-            {selectedVideo.likes}
-          </div>
-        </div>
-        <div className="details__description">{selectedVideo.description}</div>
-        <div className="details__comments">
-          {selectedVideo.comments.length} Comments
-        </div>
+      <section className="main-section">
+        <div className="left-section">
+          <section className="details">
+            <div className="details__title">
+              <h1>{selectedVideo.title}</h1>
+            </div>
+            <div className="details__stats">
+              <div className="details__channel">By {selectedVideo.channel}</div>
+              <div className="details__date">
+                {relativeTimestamp(selectedVideo.timestamp)}
+              </div>
+              <div className="details__views">
+                <img src={viewsIcon} alt="views icon" />
+                {selectedVideo.views}
+              </div>
+              <div className="details__likes">
+                <img src={likesIcon} alt="likes icon" />
+                {selectedVideo.likes}
+              </div>
+            </div>
+            <div className="details__description">
+              {selectedVideo.description}
+            </div>
+            <div className="details__comments">
+              {selectedVideo.comments.length} Comments
+            </div>
 
-        <div className="details__add-comment-container">
-          <div className="details__add-comment-user-img">
-            <img src={profilePhoto} alt="user avater here" />
-          </div>
-          <div className="details__add-comment-form-container">
-            <h1>JOIN THE CONVERSATION</h1>
-            <textarea placeholder="Add a new comment" />
-            <button>
-              <img src={addCommentIcon} alt="comment icon" />
-              COMMENT
-            </button>
-          </div>
-        </div>
+            <div className="details__add-comment-container">
+              <div className="details__add-comment-user-img">
+                <img src={profilePhoto} alt="user avater here" />
+              </div>
+              <div className="details__add-comment-form-container">
+                <h1>JOIN THE CONVERSATION</h1>
+                <textarea placeholder="Add a new comment" />
+                <button>
+                  <img src={addCommentIcon} alt="comment icon" />
+                  COMMENT
+                </button>
+              </div>
+            </div>
 
-        {/* mapping comments will happen here */}
+            {/* mapping comments will happen here */}
 
-        {selectedVideo.comments.map((comment) => (
-          <div className="details__comments-card" key={comment.id}>
-            <div className="details__comments-card-user-img"></div>
-            <div className="details__comments-card-container">
-              <div className="details__comments-card-header">
-                <div className="details__comments-card-author">
-                  {comment.name}
+            {selectedVideo.comments.map((comment) => (
+              <div className="details__comments-card" key={comment.id}>
+                <div className="details__comments-card-user-img"></div>
+                <div className="details__comments-card-container">
+                  <div className="details__comments-card-header">
+                    <div className="details__comments-card-author">
+                      {comment.name}
+                    </div>
+                    <div className="details__comments-card-date">
+                      {relativeTimestamp(comment.timestamp)}
+                    </div>
+                  </div>
+                  <div className="details__comments-card-comment">
+                    {comment.comment}
+                  </div>
                 </div>
-                <div className="details__comments-card-date">
-                  {relativeTimestamp(comment.timestamp)}
+              </div>
+            ))}
+          </section>
+        </div>
+        <div className="right-section">
+          <section className="next-videos">
+            <h2>NEXT VIDEOS</h2>
+
+            {videoData.map((video) => (
+              <div className="next-videos__card" key={video.id}>
+                <div className="next-videos__image">
+                  <img src={video.image} />
+                </div>
+                <div className="next-videos__details">
+                  <div className="next-videos__details-title">
+                    {video.title}
+                  </div>
+                  <div className="next-videos__details-channel">
+                    {video.channel}
+                  </div>
                 </div>
               </div>
-              <div className="details__comments-card-comment">
-                {comment.comment}
-              </div>
-            </div>
-          </div>
-        ))}
-      </section>
-
-      <section className="next-videos">
-        <h2>NEXT VIDEOS</h2>
-
-        {videoData.map((video) => (
-          <div className="next-videos__card" key={video.id}>
-            <div className="next-videos__image">
-              <img src={video.image} />
-            </div>
-            <div className="next-videos__details">
-              <div className="next-videos__details-title">{video.title}</div>
-              <div className="next-videos__details-channel">
-                {video.channel}
-              </div>
-            </div>
-          </div>
-        ))}
+            ))}
+          </section>
+        </div>
       </section>
     </>
   );

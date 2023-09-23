@@ -9,9 +9,27 @@
 
   video {
     width: 100vw;
+
     @include tablet {
       height: 24.3rem;
     }
+
+    @include desktop {
+      height: 30rem;
+    }
+  }
+}
+
+.main-section {
+  @include desktop {
+    display: flex;
+    padding: 0 5rem;
+  }
+}
+
+.right-section {
+  @include desktop {
+    border-left: 1px solid $mercury;
   }
 }
 
@@ -20,6 +38,10 @@
 
   @include tablet {
     padding: 0 2.5rem;
+  }
+
+  @include desktop {
+    padding-right: 0;
   }
 
   &__title {
@@ -61,6 +83,10 @@
     color: $silver;
     display: flex;
     align-items: center;
+
+    @include desktop {
+      font-size: 0.7rem;
+    }
   }
 
   &__date,
@@ -87,12 +113,18 @@
       order: 1;
       margin-left: 2rem;
     }
+    @include desktop {
+      margin-left: 1.8rem;
+    }
   }
   &__views {
     @include tablet {
       order: 1;
       margin-left: auto;
       margin-right: 2rem;
+    }
+    @include desktop {
+      margin-right: 1.5rem;
     }
   }
 
@@ -101,6 +133,12 @@
     color: $black;
     @include tablet {
       font-size: 0.9rem;
+    }
+  }
+
+  &__likes {
+    @include desktop {
+      padding-right: 1.7rem;
     }
   }
 
@@ -115,6 +153,9 @@
       font-size: 0.87rem;
       line-height: 1.3rem;
       width: 98%;
+    }
+    @include desktop {
+      width: 97%;
     }
   }
 
@@ -138,6 +179,10 @@
       @include tablet {
         padding-bottom: 1.6rem;
       }
+
+      @include desktop {
+        padding-left: 1.1rem;
+      }
     }
 
     &-user-img {
@@ -149,6 +194,10 @@
         display: flex;
         align-items: flex-end;
         margin-top: 1rem;
+      }
+
+      @include tablet {
+        margin-right: 1.8rem;
       }
 
       img {
@@ -206,6 +255,10 @@
           height: 2.6rem;
           overflow: hidden;
         }
+
+        @include desktop {
+          flex-basis: 69%;
+        }
       }
 
       button {
@@ -231,6 +284,10 @@
           height: 2.6rem;
           padding: 0;
           font-size: 0.7rem;
+        }
+
+        @include desktop {
+          margin: auto;
         }
 
         img {
@@ -272,6 +329,11 @@
       height: 2.4rem;
       margin-right: 1.2rem;
       flex-shrink: 0;
+
+      @include desktop {
+        margin-left: 1.1rem;
+        margin-right: 1.9rem;
+      }
     }
 
     &-comment {
@@ -282,6 +344,10 @@
         line-height: 1.5rem;
         width: 99%;
       }
+      @include desktop {
+        width: 95%;
+      }
+
     }
 
     &-header {
@@ -296,6 +362,10 @@
 
     &-date {
       color: $silver;
+
+      @include desktop {
+        margin-right: 1.5rem;
+      }
     }
   }
 }
@@ -307,7 +377,6 @@
     padding: 1.8rem 2.5rem;
   }
 
-
   h2 {
     padding: 0 0 0.7rem 0;
     font-size: 0.8rem;
@@ -316,7 +385,6 @@
     @include tablet {
       padding-bottom: 1.55rem;
     }
-  
   }
 
   &__card {
@@ -328,13 +396,12 @@
     padding: 0.3rem 0;
 
     @include tablet {
-    padding: 0.76rem 0;
+      padding: 0.76rem 0;
 
-    &:first-of-type {
-      padding-top: 0;
+      &:first-of-type {
+        padding-top: 0;
+      }
     }
-    }
-
   }
 
   &__image {
@@ -360,7 +427,6 @@
       font-size: 0.86rem;
       width: 11rem;
     }
-
 
     &-title {
       padding-bottom: 0.4rem;

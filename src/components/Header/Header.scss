@@ -17,6 +17,10 @@
     height: 4.4rem;
   }
 
+  @include desktop {
+    padding: 0 7rem;
+  }
+
   &__home-link {
     @include flex-center-center;
     margin: 0rem auto;
@@ -137,7 +141,6 @@
       @include tablet {
         width: 2.5rem;
         height: 2.5rem;
-          
       }
     }
   }
