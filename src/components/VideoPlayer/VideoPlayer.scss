@@ -249,6 +249,11 @@
           color: $black;
         }
 
+        &:active,
+        &:focus {
+          border: 1px solid $blue;
+        }
+
         @include tablet {
           display: flex;
           flex-basis: 74%;
@@ -276,6 +281,11 @@
         line-height: 2rem;
         border: none;
         border-radius: 0.25rem;
+
+        &:hover {
+          background: $dark-blue;
+        }
+
 
         @include tablet {
           @include flex-center-center;
@@ -347,7 +357,6 @@
       @include desktop {
         width: 95%;
       }
-
     }
 
     &-header {

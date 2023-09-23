@@ -2,7 +2,6 @@ import "./Header.scss";
 import searchBarIcon from "../../assets/icons/search.svg";
 import uploadIcon from "../../assets/icons/upload.svg";
 import profilePhoto from "../../assets/images/Mohan-muruge.jpg";
-
 import brainflixLogo from "../../assets/logo/BrainFlix-logo.svg";
 
 const Header = (props) => {
@@ -15,19 +14,13 @@ const Header = (props) => {
           alt="brain flix home icon"
         />
       </div>
-      <div className="header__search-bar">
-        <img
-          src={searchBarIcon}
-          alt="search icon"
-          className="header__search-icon"
-        />
 
         <input
           type="text"
-          className="header__search-field"
+          className="header__search-bar"
           placeholder="Search"
         />
-      </div>
+        
       <div className="header__upload-button buttons">
         <button className="buttons">
           <img src={uploadIcon} alt="" />
