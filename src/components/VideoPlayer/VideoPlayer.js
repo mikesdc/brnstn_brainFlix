@@ -136,14 +136,13 @@ const VideoPlayer = (props) => {
         {videoData.map((video) => (
           <div className="next-videos__card" key={video.id}>
             <div className="next-videos__image">
-              <img
-                src={video.image}
-                alt="next video image"
-              />
+              <img src={video.image} />
             </div>
             <div className="next-videos__details">
               <div className="next-videos__details-title">{video.title}</div>
-              <div className="next-videos__details-channel">{video.channel}</div>
+              <div className="next-videos__details-channel">
+                {video.channel}
+              </div>
             </div>
           </div>
         ))}

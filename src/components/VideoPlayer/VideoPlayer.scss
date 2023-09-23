@@ -19,7 +19,7 @@
   padding: 0 1rem;
 
   @include tablet {
-    padding: 0 3rem;
+    padding: 0 2.5rem;
   }
 
   &__title {
@@ -104,7 +104,6 @@
     }
   }
 
-
   &__description {
     padding: 1.1rem 0;
     font-size: 0.805rem;
@@ -115,8 +114,8 @@
       padding: 1.7rem 0 2rem 0;
       font-size: 0.87rem;
       line-height: 1.3rem;
+      width: 98%;
     }
-
   }
 
   &__comments {
@@ -127,15 +126,18 @@
 
     @include tablet {
       font-size: 0.88rem;
-      padding-bottom: 1.5rem;
+      padding-bottom: 1.3rem;
     }
-
   }
 
   &__add-comment {
     &-container {
       display: flex;
       padding-bottom: 0.8rem;
+
+      @include tablet {
+        padding-bottom: 1.6rem;
+      }
     }
 
     &-user-img {
@@ -143,22 +145,44 @@
       margin-top: 1.12rem;
       flex: 0 0 1;
 
+      @include tablet {
+        display: flex;
+        align-items: flex-end;
+        margin-top: 1rem;
+      }
+
       img {
         width: 2.3rem;
         height: 2.3rem;
         object-fit: cover;
         object-position: -0.25rem;
         border-radius: 50%;
+        top: 3rem;
+
+        @include tablet {
+          width: 2.5rem;
+          height: 2.5rem;
+        }
       }
     }
 
     &-form-container {
       flex: 1;
 
+      @include tablet {
+        display: flex;
+        flex-wrap: wrap;
+        align-items: center;
+      }
+
       h1 {
         font-size: 0.75rem;
         color: $silver;
         padding-bottom: 0.26rem;
+
+        @include tablet {
+          flex-basis: 100%;
+        }
       }
 
       textarea {
@@ -174,6 +198,13 @@
 
         &::placeholder {
           color: $black;
+        }
+
+        @include tablet {
+          display: flex;
+          flex-basis: 74%;
+          height: 2.6rem;
+          overflow: hidden;
         }
       }
 
@@ -193,11 +224,24 @@
         border: none;
         border-radius: 0.25rem;
 
+        @include tablet {
+          @include flex-center-center;
+          flex-basis: 23%;
+          margin: 0 0 0 auto;
+          height: 2.6rem;
+          padding: 0;
+          font-size: 0.7rem;
+        }
+
         img {
           position: absolute;
           left: 0.6rem;
           top: 0.6rem;
           width: 1.1rem;
+
+          @include tablet {
+            top: 0.75rem;
+          }
         }
       }
     }
@@ -211,6 +255,11 @@
     width: 100%;
     border-top: 1px solid $mercury;
     font-size: 0.8rem;
+
+    @include tablet {
+      padding: 1.35rem 0;
+      font-size: 0.859rem;
+    }
 
     &:last-of-type {
       border-bottom: 1px solid $mercury;
@@ -228,6 +277,11 @@
     &-comment {
       padding-top: 0.5rem;
       line-height: 1.12rem;
+
+      @include tablet {
+        line-height: 1.5rem;
+        width: 99%;
+      }
     }
 
     &-header {
@@ -249,10 +303,20 @@
 .next-videos {
   padding: 1rem;
 
+  @include tablet {
+    padding: 1.8rem 2.5rem;
+  }
+
+
   h2 {
     padding: 0 0 0.7rem 0;
     font-size: 0.8rem;
     color: $silver;
+
+    @include tablet {
+      padding-bottom: 1.55rem;
+    }
+  
   }
 
   &__card {
@@ -262,6 +326,15 @@
     gap: 1rem;
     box-sizing: border-box;
     padding: 0.3rem 0;
+
+    @include tablet {
+    padding: 0.76rem 0;
+
+    &:first-of-type {
+      padding-top: 0;
+    }
+    }
+
   }
 
   &__image {
@@ -272,12 +345,22 @@
     width: 6.5rem;
     height: 4rem;
     object-fit: cover;
-    border-radius: 0.4rem;
+    border-radius: 0.3rem;
+
+    @include tablet {
+      width: 6.8rem;
+    }
   }
 
   &__details {
     font-size: 0.8rem;
     color: $black;
+
+    @include tablet {
+      font-size: 0.86rem;
+      width: 11rem;
+    }
+
 
     &-title {
       padding-bottom: 0.4rem;
