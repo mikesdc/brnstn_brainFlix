@@ -10,6 +10,8 @@ import addCommentIcon from "../../assets/icons/add_comment.svg";
 
 import profilePhoto from "../../assets/images/Mohan-muruge.jpg";
 
+import NextVideos from "../NextVideos/NextVideos";
+
 console.log("selectedVideo", videoDetails);
 console.log("nextVideos", videoData);
 
@@ -112,8 +114,6 @@ const VideoPlayer = (props) => {
               </div>
             </div>
 
-            {/* mapping comments will happen here */}
-
             {selectedVideo.comments.map((comment) => (
               <div className="details__comments-card" key={comment.id}>
                 <div className="details__comments-card-user-img"></div>
@@ -134,27 +134,9 @@ const VideoPlayer = (props) => {
             ))}
           </section>
         </div>
-        <div className="right-section">
-          <section className="next-videos">
-            <h2>NEXT VIDEOS</h2>
 
-            {videoData.map((video) => (
-              <div className="next-videos__card" key={video.id}>
-                <div className="next-videos__image">
-                  <img src={video.image} />
-                </div>
-                <div className="next-videos__details">
-                  <div className="next-videos__details-title">
-                    {video.title}
-                  </div>
-                  <div className="next-videos__details-channel">
-                    {video.channel}
-                  </div>
-                </div>
-              </div>
-            ))}
-          </section>
-        </div>
+        <NextVideos />
+
       </section>
     </>
   );

@@ -1,0 +1,72 @@
+@use "../../styles/partials/variables" as *;
+@use "../../styles/partials/mixins" as *;
+
+@import "../../styles/partials/global";
+
+
+.next-videos {
+  padding: 1rem;
+
+  @include tablet {
+    padding: 1.8rem 2.5rem;
+  }
+
+  h2 {
+    padding: 0 0 0.7rem 0;
+    font-size: 0.8rem;
+    color: $silver;
+
+    @include tablet {
+      padding-bottom: 1.55rem;
+    }
+  }
+
+  &__card {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    gap: 1rem;
+    box-sizing: border-box;
+    padding: 0.3rem 0;
+
+    @include tablet {
+      padding: 0.76rem 0;
+
+      &:first-of-type {
+        padding-top: 0;
+      }
+    }
+  }
+
+  &__image {
+    @include flex-center-center;
+  }
+
+  img {
+    width: 6.5rem;
+    height: 4rem;
+    object-fit: cover;
+    border-radius: 0.3rem;
+
+    @include tablet {
+      width: 6.8rem;
+    }
+  }
+
+  &__details {
+    font-size: 0.8rem;
+    color: $black;
+
+    @include tablet {
+      font-size: 0.86rem;
+      width: 11rem;
+    }
+
+    &-title {
+      padding-bottom: 0.4rem;
+      font-weight: 700;
+      line-clamp: 2;
+      text-overflow: ellipsis;
+    }
+  }
+}
