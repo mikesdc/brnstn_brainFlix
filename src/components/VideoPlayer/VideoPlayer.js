@@ -11,6 +11,7 @@ import addCommentIcon from "../../assets/icons/add_comment.svg";
 import profilePhoto from "../../assets/images/Mohan-muruge.jpg";
 
 import NextVideos from "../NextVideos/NextVideos";
+import Comments from "../Comments/Comments";
 
 console.log("selectedVideo", videoDetails);
 console.log("nextVideos", videoData);
@@ -74,7 +75,11 @@ const VideoPlayer = (props) => {
       </section>
 
       <section className="main-section">
+
+
         <div className="left-section">
+
+
           <section className="details">
             <div className="details__title">
               <h1>{selectedVideo.title}</h1>
@@ -114,29 +119,15 @@ const VideoPlayer = (props) => {
               </div>
             </div>
 
-            {selectedVideo.comments.map((comment) => (
-              <div className="details__comments-card" key={comment.id}>
-                <div className="details__comments-card-user-img"></div>
-                <div className="details__comments-card-container">
-                  <div className="details__comments-card-header">
-                    <div className="details__comments-card-author">
-                      {comment.name}
-                    </div>
-                    <div className="details__comments-card-date">
-                      {relativeTimestamp(comment.timestamp)}
-                    </div>
-                  </div>
-                  <div className="details__comments-card-comment">
-                    {comment.comment}
-                  </div>
-                </div>
-              </div>
-            ))}
+            <Comments />
           </section>
-        </div>
 
+
+        </div>
         <NextVideos />
 
+
+        
       </section>
     </>
   );

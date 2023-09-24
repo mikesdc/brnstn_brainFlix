@@ -1,0 +1,68 @@
+@use "../../styles/partials/variables" as *;
+@use "../../styles/partials/mixins" as *;
+
+@import "../../styles/partials/global";
+
+.comments-card {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    padding: 0.75rem 0;
+    width: 100%;
+    border-top: 1px solid $mercury;
+    font-size: 0.8rem;
+
+    @include tablet {
+      padding: 1.35rem 0;
+      font-size: 0.859rem;
+    }
+
+    &:last-of-type {
+      border-bottom: 1px solid $mercury;
+    }
+
+    &-user-img {
+      background-color: $mercury;
+      border-radius: 50%;
+      width: 2.4rem;
+      height: 2.4rem;
+      margin-right: 1.2rem;
+      flex-shrink: 0;
+
+      @include desktop {
+        margin-left: 1.1rem;
+        margin-right: 1.9rem;
+      }
+    }
+
+    &-comment {
+      padding-top: 0.5rem;
+      line-height: 1.12rem;
+
+      @include tablet {
+        line-height: 1.5rem;
+        width: 99%;
+      }
+      @include desktop {
+        width: 95%;
+      }
+    }
+
+    &-header {
+      display: flex;
+      flex-direction: row;
+      justify-content: space-between;
+    }
+    &-author {
+      font-weight: 700;
+      color: $black;
+    }
+
+    &-date {
+      color: $silver;
+
+      @include desktop {
+        margin-right: 1.5rem;
+      }
+    }
+  }
