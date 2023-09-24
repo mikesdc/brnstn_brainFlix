@@ -1,0 +1,17 @@
+@use "./partials/variables" as *;
+@use "./partials/mixins" as *;
+
+@import "./partials/global";
+
+.main-section {
+    @include desktop {
+      display: flex;
+      padding: 0 5rem;
+    }
+  }
+  
+  .right-section {
+    @include desktop {
+      border-left: 1px solid $mercury;
+    }
+  }
