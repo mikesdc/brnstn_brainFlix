@@ -10,7 +10,7 @@
 
 .video {
   @include flex-center-center;
-  
+
   @include tablet {
     height: 24.3rem;
   }
@@ -20,12 +20,10 @@
     object-fit: contain;
   }
 
-
   video {
     max-height: 100%;
     aspect-ratio: 16/9;
     object-fit: cover;
-  
 
     &[poster] {
       height: 100%;

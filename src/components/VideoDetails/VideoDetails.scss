@@ -71,7 +71,7 @@
 
   &__channel,
   &__date {
-    width: 9rem;
+    width: 45vw;
 
     @include mobile-to-tablet {
       width: initial;
@@ -80,7 +80,6 @@
 
   &__date {
     @include mobile-to-tablet {
-      order: 1;
       margin-left: 2rem;
     }
     @include desktop {
@@ -88,7 +87,6 @@
     }
   }
   &__views {
-    margin-right: 11%;
     @include mobile-to-tablet {
       order: 1;
       margin-left: auto;
