@@ -1,11 +1,12 @@
 import "./styles/App.scss";
 import Header from "./components/Header/Header";
 import VideoPlayer from "./components/VideoPlayer/VideoPlayer";
-import { videoSrc } from "./components/VideoPlayer/VideoPlayer";
 import VideoDetails from "./components/VideoDetails/VideoDetails";
 import NextVideos from "./components/NextVideos/NextVideos";
 import { useState } from "react";
 
+import videoDetailsObject from "./data/video-details.json";
+import videoData from "./data/videos.json";
 
 
 export const relativeTimestamp = function (timestamp) {
@@ -53,23 +54,24 @@ export const relativeTimestamp = function (timestamp) {
 };
 
 
-// const [selectedVideo, setSelectedVideo] = useState()
-
-
 function App() {
+
+  const [selectedVideo, setSelectedVideo] = useState(videoDetailsObject[0]);
+  const [videosList, setVideosList] = useState(videoData);
+
+  console.log("App.js selectedVideo", selectedVideo)
 
   return (
     <div className="App">
       <Header />
       <main className="main">
-      <VideoPlayer />
-      <section className="main-section">
-        <div className="left-section">
-          <VideoDetails />
-        </div>
-        <NextVideos />
-      </section>
-
+        <VideoPlayer selectedVideo={selectedVideo} />
+        <section className="main-section">
+          <div className="left-section">
+            <VideoDetails selectedVideo={selectedVideo} />
+          </div>
+          <NextVideos videosList={videosList}/>
+        </section>
       </main>
     </div>
   );

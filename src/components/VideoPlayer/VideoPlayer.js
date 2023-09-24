@@ -1,13 +1,9 @@
-import { useState } from "react";
 import React from "react";
 import "./VideoPlayer.scss";
-import videoDetails from "../../data/video-details.json";
 
 
-const VideoPlayer = (props) => {
-  const [selectedVideo, setSelectedVideo] = useState(videoDetails[0]);
-
-  console.log(selectedVideo);
+const VideoPlayer = ({selectedVideo}) => {
+  console.log("VideoPlayer: selectedVideo", selectedVideo);
 
   return (
     <>

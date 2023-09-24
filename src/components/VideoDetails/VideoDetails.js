@@ -1,7 +1,5 @@
-import { useState } from "react";
 import React from "react";
 import "./VideoDetails.scss";
-import videoDetails from "../../data/video-details.json";
 
 import viewsIcon from "../../assets/icons/views.svg";
 import likesIcon from "../../assets/icons/likes.svg";
@@ -10,9 +8,7 @@ import { relativeTimestamp } from "../../App";
 
 import Comments from "../Comments/Comments";
 
-const VideoDetails = (props) => {
-  const [selectedVideo, setSelectedVideo] = useState(videoDetails[0]);
-
+const VideoDetails = ({ selectedVideo }) => {
   return (
     <>
       <section className="video-details">
@@ -20,7 +16,9 @@ const VideoDetails = (props) => {
           <h1>{selectedVideo.title}</h1>
         </div>
         <div className="video-details__stats">
-          <div className="video-details__channel">By {selectedVideo.channel}</div>
+          <div className="video-details__channel">
+            By {selectedVideo.channel}
+          </div>
           <div className="video-details__date">
             {relativeTimestamp(selectedVideo.timestamp)}
           </div>
@@ -33,9 +31,11 @@ const VideoDetails = (props) => {
             {selectedVideo.likes}
           </div>
         </div>
-        <div className="video-details__description">{selectedVideo.description}</div>
+        <div className="video-details__description">
+          {selectedVideo.description}
+        </div>
 
-        <Comments />
+        <Comments selectedVideo={selectedVideo} />
       </section>
     </>
   );

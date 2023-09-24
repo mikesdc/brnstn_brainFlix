@@ -1,17 +1,8 @@
-import { useState } from "react";
 import React from "react";
 import "./NextVideos.scss";
-import videoDetails from "../../data/video-details.json";
-import videoData from "../../data/videos.json";
 
-console.log("selectedVideo", videoDetails);
-console.log("nextVideos", videoData);
 
-const NextVideos = (props) => {
-  const [selectedVideo, setSelectedVideo] = useState(videoDetails[0]);
-  const [nextVideos, setNextVideos] = useState(videoData[0]);
-
-  console.log(selectedVideo);
+const NextVideos = ({videosList}) => {
 
   return (
     <>
@@ -19,7 +10,7 @@ const NextVideos = (props) => {
           <section className="next-videos">
             <h2>NEXT VIDEOS</h2>
 
-            {videoData.map((video) => (
+            {videosList.map((video) => (
               <div className="next-videos__card" key={video.id}>
                 <div className="next-videos__image">
                   <img src={video.image} />

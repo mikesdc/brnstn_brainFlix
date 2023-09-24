@@ -1,19 +1,12 @@
-import { useState } from "react";
 import React from "react";
 import "./Comments.scss";
-import videoDetails from "../../data/video-details.json";
-import videoData from "../../data/videos.json";
 import { relativeTimestamp } from "../../App";
 
 import addCommentIcon from "../../assets/icons/add_comment.svg";
 import profilePhoto from "../../assets/images/Mohan-muruge.jpg";
 
 
-console.log("selectedVideo", videoDetails);
-console.log("nextVideos", videoData);
-
-const Comments = (props) => {
-  const [selectedVideo, setSelectedVideo] = useState(videoDetails[0]);
+const Comments = ({selectedVideo}) => {
   
   return (
     <>
