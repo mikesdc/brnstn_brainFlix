@@ -107,6 +107,7 @@
   }
 
   &__likes {
+
     @include desktop {
       padding-right: 1.7rem;
     }

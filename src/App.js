@@ -8,7 +8,6 @@ import { useState } from "react";
 import videoDetailsObject from "./data/video-details.json";
 import videoData from "./data/videos.json";
 
-
 export const relativeTimestamp = function (timestamp) {
   const rightNow = new Date();
   const pastDate = new Date(timestamp);
@@ -53,13 +52,13 @@ export const relativeTimestamp = function (timestamp) {
   }
 };
 
-
 function App() {
-
   const [selectedVideo, setSelectedVideo] = useState(videoDetailsObject[0]);
   const [videosList, setVideosList] = useState(videoData);
 
-  console.log("App.js selectedVideo", selectedVideo)
+  let modifiedVideoList = videosList.filter(
+    (video) => video.id !== selectedVideo.id
+  );
 
   return (
     <div className="App">
@@ -70,7 +69,10 @@ function App() {
           <div className="left-section">
             <VideoDetails selectedVideo={selectedVideo} />
           </div>
-          <NextVideos videosList={videosList}/>
+          <NextVideos
+            videosList={modifiedVideoList}
+            setSelectedVideo={setSelectedVideo}
+          />
         </section>
       </main>
     </div>
