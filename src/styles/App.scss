@@ -4,14 +4,16 @@
 @import "./partials/global";
 
 .main-section {
-    @include desktop {
-      display: flex;
-      padding: 0 5rem;
-    }
+  margin: 0 auto;
+  @include desktop {
+    display: flex;
+    padding: 0 5rem;
+    max-width: 87.5rem;
   }
-  
-  .right-section {
-    @include desktop {
-      border-left: 1px solid $mercury;
-    }
+}
+
+.right-section {
+  @include desktop {
+    border-left: 1px solid $mercury;
   }
+}

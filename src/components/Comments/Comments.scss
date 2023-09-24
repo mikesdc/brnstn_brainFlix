@@ -126,9 +126,11 @@
         line-height: 2rem;
         border: none;
         border-radius: 0.25rem;
+        transition: background-color 0.2s;
 
         &:hover {
           background: $dark-blue;
+          cursor: pointer;
         }
 
         @include tablet {
@@ -162,7 +164,7 @@
 .comments-card {
   display: flex;
   flex-direction: row;
-  justify-content: space-between;
+  justify-content: flex-start;
   padding: 0.75rem 0;
   width: 100%;
   border-top: 1px solid $mercury;
@@ -191,9 +193,17 @@
     }
   }
 
+  &-container {
+    flex-grow: 1;
+  }
+
   &-comment {
     padding-top: 0.5rem;
     line-height: 1.12rem;
+
+    display: flex;
+    width: 100%;
+    flex: 1;
 
     @include tablet {
       line-height: 1.5rem;

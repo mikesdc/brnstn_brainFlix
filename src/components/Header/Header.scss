@@ -9,6 +9,7 @@
   justify-content: center;
   align-items: center;
   padding: 1rem;
+  margin: auto;
 
   @include tablet {
     padding: 0 1rem;
@@ -19,6 +20,7 @@
 
   @include desktop {
     padding: 0 7rem;
+    max-width: 87.5rem;
   }
 
   &__home-link {
@@ -26,6 +28,10 @@
     margin: 0rem auto;
     width: 100vw;
     height: auto;
+
+    &:hover {
+      cursor: pointer;
+    }
 
     @include tablet {
       margin: 0;
@@ -116,9 +122,11 @@
       line-height: 2rem;
       border: none;
       border-radius: 0.25rem;
+      transition: background-color 0.2s;
 
       &:hover {
         background: $dark-blue;
+        cursor: pointer;
       }
 
       @include tablet {

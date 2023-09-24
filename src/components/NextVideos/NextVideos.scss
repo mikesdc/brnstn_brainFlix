@@ -3,7 +3,6 @@
 
 @import "../../styles/partials/global";
 
-
 .next-videos {
   padding: 1rem;
 
@@ -17,7 +16,7 @@
     color: $silver;
 
     @include tablet {
-      padding-bottom: 1.55rem;
+      padding-bottom: 0.79rem;
     }
   }
 
@@ -28,13 +27,16 @@
     gap: 1rem;
     box-sizing: border-box;
     padding: 0.3rem 0;
+    transition: background-color 0.2s;
+
+    &:hover {
+      background-color: $alabaster;
+      border-radius: 0.5rem;
+      cursor: pointer;
+    }
 
     @include tablet {
       padding: 0.76rem 0;
-
-      &:first-of-type {
-        padding-top: 0;
-      }
     }
   }
 

@@ -38,7 +38,7 @@
     justify-content: flex-start;
     flex-wrap: wrap;
 
-    @include tablet {
+    @include mobile-to-tablet {
       padding: 0.5rem 0;
     }
 
@@ -64,7 +64,7 @@
     order: 1;
     padding-top: 0.8rem;
 
-    @include tablet {
+    @include mobile-to-tablet {
       padding: 0;
     }
   }
@@ -73,13 +73,13 @@
   &__date {
     width: 9rem;
 
-    @include tablet {
+    @include mobile-to-tablet {
       width: initial;
     }
   }
 
   &__date {
-    @include tablet {
+    @include mobile-to-tablet {
       order: 1;
       margin-left: 2rem;
     }
@@ -88,7 +88,8 @@
     }
   }
   &__views {
-    @include tablet {
+    margin-right: 11%;
+    @include mobile-to-tablet {
       order: 1;
       margin-left: auto;
       margin-right: 2rem;
@@ -101,13 +102,12 @@
   &__channel {
     font-weight: 700;
     color: $black;
-    @include tablet {
+    @include mobile-to-tablet {
       font-size: 0.9rem;
     }
   }
 
   &__likes {
-
     @include desktop {
       padding-right: 1.7rem;
     }
@@ -119,7 +119,7 @@
     line-height: 1.09rem;
     color: $black;
 
-    @include tablet {
+    @include mobile-to-tablet {
       padding: 1.7rem 0 2rem 0;
       font-size: 0.87rem;
       line-height: 1.3rem;
