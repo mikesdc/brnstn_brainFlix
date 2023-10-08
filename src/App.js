@@ -34,14 +34,14 @@ export const relativeTimestamp = function (timestamp) {
     const year = pastDate.getFullYear();
 
     let monthTimestamp;
-    if (month.toString().length == 2) {
+    if (month.toString().length === 2) {
       monthTimestamp = month.toString();
     } else {
       monthTimestamp = `0${month}`;
     }
 
     let dateNumTimestamp;
-    if (date.toString().length == 2) {
+    if (date.toString().length === 2) {
       dateNumTimestamp = date.toString();
     } else {
       dateNumTimestamp = `0${date}`;

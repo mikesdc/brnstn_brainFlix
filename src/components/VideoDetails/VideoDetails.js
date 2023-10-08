@@ -10,7 +10,6 @@ import Comments from "../Comments/Comments";
 
 const VideoDetails = ({ selectedVideo }) => {
   return (
-    <>
       <section className="video-details">
         <div className="video-details__title">
           <h1>{selectedVideo.title}</h1>
@@ -37,7 +36,6 @@ const VideoDetails = ({ selectedVideo }) => {
 
         <Comments selectedVideo={selectedVideo} />
       </section>
-    </>
   );
 };
 

@@ -3,7 +3,6 @@ import "./VideoPlayer.scss";
 
 const VideoPlayer = ({ selectedVideo }) => {
   return (
-    <>
       <section className="video-player">
         <div className="video">
           <video controls poster={selectedVideo.image}>
@@ -11,7 +10,7 @@ const VideoPlayer = ({ selectedVideo }) => {
           </video>
         </div>
       </section>
-    </>
+
   );
 };
 

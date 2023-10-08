@@ -118,12 +118,14 @@
     line-height: 1.09rem;
     color: $black;
 
-    @include mobile-to-tablet {
+    @include tablet {
       padding: 1.7rem 0 2rem 0;
       font-size: 0.87rem;
       line-height: 1.3rem;
       width: 98%;
+      background-color: palegreen;
     }
+
     @include desktop {
       width: 97%;
     }

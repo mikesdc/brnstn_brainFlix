@@ -11,7 +11,6 @@ const NextVideos = ({ videosList, setSelectedVideo }) => {
   };
 
   return (
-    <>
       <div className="right-section">
         <section className="next-videos">
           <h2>NEXT VIDEOS</h2>
@@ -23,7 +22,7 @@ const NextVideos = ({ videosList, setSelectedVideo }) => {
               onClick={() => handleClick(video)}
             >
               <div className="next-videos__image">
-                <img src={video.image} />
+                <img src={video.image} alt=""/>
               </div>
               <div className="next-videos__details">
                 <div className="next-videos__details-title">{video.title}</div>
@@ -35,7 +34,6 @@ const NextVideos = ({ videosList, setSelectedVideo }) => {
           ))}
         </section>
       </div>
-    </>
   );
 };
 
