@@ -1,0 +1,9 @@
+@use "../../styles/partials/variables" as *;
+@use "../../styles/partials/mixins" as *;
+
+@import "../../styles/partials/global";
+
+.error {
+  @include flex-center-center;
+  height: 30vh;
+}
