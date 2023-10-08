@@ -109,7 +109,12 @@
       padding: 0;
     }
 
-    button {
+    a {
+      width: 100%;
+      text-decoration: none;
+    }
+
+     .buttons {
       @include flex-center-center;
       font-size: 0.75rem;
       letter-spacing: 0.03rem;

@@ -1,12 +1,12 @@
-import "./styles/App.scss";
+import "./App.scss";
 import Header from "./components/Header/Header";
-import VideoPlayer from "./components/VideoPlayer/VideoPlayer";
-import VideoDetails from "./components/VideoDetails/VideoDetails";
-import NextVideos from "./components/NextVideos/NextVideos";
-import { useState } from "react";
+import { BrowserRouter, Routes, Route, Link } from "react-router-dom";
 
-import videoDetailsObject from "./data/video-details.json";
-import videoData from "./data/videos.json";
+//pages
+import Home from "./pages/Home/Home";
+import Upload from "./pages/Upload/Upload";
+import NotFound from "./pages/NotFound/NotFound";
+import VideoPage from "./pages/VideoPage/VideoPage";
 
 export const relativeTimestamp = function (timestamp) {
   const rightNow = new Date();
@@ -53,29 +53,17 @@ export const relativeTimestamp = function (timestamp) {
 };
 
 function App() {
-  const [selectedVideo, setSelectedVideo] = useState(videoDetailsObject[0]);
-  const [videosList, setVideosList] = useState(videoData);
-
-  let modifiedVideoList = videosList.filter(
-    (video) => video.id !== selectedVideo.id
-  );
-
   return (
-    <div className="App">
+    <BrowserRouter>
       <Header />
-      <main className="main">
-        <VideoPlayer selectedVideo={selectedVideo} />
-        <section className="main-section">
-          <div className="left-section">
-            <VideoDetails selectedVideo={selectedVideo} />
-          </div>
-          <NextVideos
-            videosList={modifiedVideoList}
-            setSelectedVideo={setSelectedVideo}
-          />
-        </section>
-      </main>
-    </div>
+
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="upload" element={<Upload />} />
+        <Route path="videos/:videoLinkId" element={<VideoPage />} />
+        <Route path="*" element={<NotFound />} />
+      </Routes>
+    </BrowserRouter>
   );
 }
 
