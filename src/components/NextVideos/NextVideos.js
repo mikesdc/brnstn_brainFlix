@@ -24,7 +24,11 @@ const NextVideos = ({ videosList, setSelectedVideo }) => {
         <h2>NEXT VIDEOS</h2>
 
         {videosList.map((video) => (
+<<<<<<< HEAD
           <Link to={"/video/" + video.id}>
+=======
+          <a href={"/video/" + video.id}>
+>>>>>>> f353f15c26bfea10d3142eec08927fd019ad8b92
             <div
               className="next-videos__card"
               key={video.id}
@@ -40,7 +44,11 @@ const NextVideos = ({ videosList, setSelectedVideo }) => {
                 </div>
               </div>
             </div>
+<<<<<<< HEAD
           </Link>
+=======
+          </a>
+>>>>>>> f353f15c26bfea10d3142eec08927fd019ad8b92
         ))}
       </section>
     </div>
