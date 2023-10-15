@@ -32,8 +32,6 @@ function Home() {
   const { videoLinkId } = useParams();
   const navigate = useNavigate();
 
-  console.log(videoLinkId);
-
   useEffect(() => {
     axios
       .get(
@@ -46,8 +44,8 @@ function Home() {
         setLoading(false);
       })
       .catch((err) => {
-        console.log("error: ", err);
-        navigate("/videonotfound/error");
+        console.error(err);
+        navigate("/video/notfound/error");
       });
   }, []);
 
