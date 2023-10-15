@@ -1,21 +1,19 @@
 import "./Home.scss";
-import Header from "../../components/Header/Header";
 import VideoPlayer from "../../components/VideoPlayer/VideoPlayer";
 import VideoDetails from "../../components/VideoDetails/VideoDetails";
 import NextVideos from "../../components/NextVideos/NextVideos";
 import { useState, useEffect } from "react";
-import { BrowserRouter, Routes, Route, Link } from "react-router-dom";
+import {
+  useParams,
+  useNavigate,
+} from "react-router-dom";
 import axios from "axios";
 
-import videoDetailsObject from "../../data/video-details.json";
 
 function Home() {
-  const [selectedVideo, setSelectedVideo] = useState(videoDetailsObject[0]);
+  const [selectedVideo, setSelectedVideo] = useState([null]);
   const [videosList, setVideosList] = useState([]);
-
-  let modifiedVideoList = videosList.filter(
-    (video) => video.id !== selectedVideo.id
-  );
+  const [loading, setLoading] = useState(true);
 
   useEffect(() => {
     axios
@@ -27,20 +25,48 @@ function Home() {
       });
   }, []);
 
+  let modifiedVideoList = videosList.filter(
+    (video) => video.id !== selectedVideo.id
+  );
+
+  const { videoLinkId } = useParams();
+  const navigate = useNavigate();
+
+  console.log(videoLinkId);
+
+  useEffect(() => {
+    axios
+      .get(
+        videoLinkId
+          ? `https://project-2-api.herokuapp.com/videos/${videoLinkId}/?api_key=e8ea54d0-3cd7-4281-8936-65a324902fec`
+          : "https://project-2-api.herokuapp.com/videos/84e96018-4022-434e-80bf-000ce4cd12b8/?api_key=e8ea54d0-3cd7-4281-8936-65a324902fec"
+      )
+      .then((response) => {
+        setSelectedVideo(response.data);
+        setLoading(false);
+      })
+      .catch((err) => {
+        console.log("error: ", err);
+        navigate("/videonotfound/error");
+      });
+  }, []);
+
   return (
     <div className="App">
-      <main className="main">
-        <VideoPlayer selectedVideo={selectedVideo} />
-        <section className="main-section">
-          <div className="left-section">
-            <VideoDetails selectedVideo={selectedVideo} />
-          </div>
-          <NextVideos
-            videosList={modifiedVideoList}
-            setSelectedVideo={setSelectedVideo}
-          />
-        </section>
-      </main>
+      {!loading && selectedVideo ? (
+        <main className="main">
+          <VideoPlayer selectedVideo={selectedVideo} />
+          <section className="main-section">
+            <div className="left-section">
+              <VideoDetails selectedVideo={selectedVideo} />
+            </div>
+            <NextVideos
+              videosList={modifiedVideoList}
+              setSelectedVideo={setSelectedVideo}
+            />
+          </section>
+        </main>
+      ) : null}
     </div>
   );
 }
