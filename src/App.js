@@ -6,6 +6,7 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Home from "./pages/Home/Home";
 import Upload from "./pages/Upload/Upload";
 import NotFound from "./pages/NotFound/NotFound";
+import VideoPage from "./pages/VideoPage/VideoPage";
 
 export const relativeTimestamp = function (timestamp) {
   const rightNow = new Date();
@@ -58,7 +59,7 @@ function App() {
 
       <Routes>
         <Route path="/" element={<Home />} />
-        <Route path="/:videoLinkId" element={<Home />} />
+        <Route path="/video/:videoLinkId" element={<Home />} />
         <Route path="upload" element={<Upload />} />
         <Route path="*" element={<NotFound />} />
       </Routes>

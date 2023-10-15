@@ -3,10 +3,9 @@ import NextVideos from "../../components/NextVideos/NextVideos";
 import { useState, useEffect } from "react";
 import axios from 'axios';
 
-import videoDetailsObject from "../../data/video-details.json";
 
 function Upload() {
-  const [selectedVideo, setSelectedVideo] = useState(videoDetailsObject[0]);
+  const [selectedVideo, setSelectedVideo] = useState([]);
   const [videosList, setVideosList] = useState([]);
 
   let modifiedVideoList = videosList.filter(

@@ -5,10 +5,14 @@ import brainflixLogo from "../../assets/logo/BrainFlix-logo.svg";
 import { Link } from "react-router-dom";
 
 const Header = (props) => {
+  const reload = () => {
+    window.origin.reload();
+  };
+
   return (
     <header className="header">
       <div className="header__home-link">
-        <Link to="/">
+        <Link to="/" onClick={() => reload()}>
           <img
             className="header__home-link-icon"
             src={brainflixLogo}
