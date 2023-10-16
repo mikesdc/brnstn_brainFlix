@@ -3,17 +3,238 @@
 
 @import "../../styles/partials/global";
 
-.main-section {
-  margin: 0 auto;
+.upload {
+  border-top: 1px solid $mercury;
+  padding: 0 1rem;
+
+  h2 {
+    font-size: 0.8rem;
+    font-weight: 700;
+    color: $silver;
+    padding-bottom: 0.4rem;
+  }
+
+  @include tablet {
+    padding: 0 2.5rem;
+  }
+
   @include desktop {
-    display: flex;
-    padding: 0 5rem;
+    padding: 0 8rem;
     max-width: 87.5rem;
+  }
+
+  &__body {
+    @include desktop {
+      display: flex;
+      margin-bottom: 2rem;
+      border-bottom: 1px solid $mercury;
+    }
+  }
+
+  &__header {
+    color: $black;
+    font-size: 1.4rem;
+    line-height: 2rem;
+    padding: 1.2rem 0;
+
+    @include tablet {
+      font-size: 2.3rem;
+      border-bottom: 1px solid $mercury;
+      margin: 2.5rem 0;
+    }
+  }
+
+  &__thumbnail {
+    @include desktop {
+      width: initial;
+      height: 15rem;
+    }
+
+    img {
+      width: 100%;
+      border: 1px solid $silver;
+      border-radius: 0.3rem;
+
+      @include tablet {
+        width: 50%;
+      }
+
+      @include desktop {
+        width: initial;
+        height: 10rem;
+      }
+    }
+  }
+
+  &__forms {
+    @include desktop {
+      margin-left: 2rem;
+      flex-grow: 1;
+    }
+
+    label {
+      font-size: 0.8rem;
+      font-weight: 700;
+      color: $silver;
+    }
+
+    input,
+    textarea {
+      display: block;
+      box-sizing: border-box;
+      border: 1px solid $mercury;
+      outline: none;
+      border-radius: 0.25rem;
+      padding: 0.8rem;
+      background-color: $alabaster;
+      width: 100%;
+      height: 6rem;
+      resize: none;
+
+      &::placeholder {
+        color: $black;
+      }
+
+      &:active,
+      &:focus {
+        border: 1px solid $blue;
+      }
+
+      @include tablet {
+        display: flex;
+        flex-basis: 74%;
+        overflow: hidden;
+      }
+
+      @include desktop {
+        flex-basis: 69%;
+        height: 5.2rem;
+        width: 100%;
+      }
+    }
+
+    input {
+      height: 2.3rem;
+    }
+
+    &-title,
+    &-description {
+      margin-top: 0.7rem;
+
+      @include desktop {
+        margin-top: 0rem;
+      }
+
+      input,
+      textarea {
+        margin-bottom: 1rem;
+        margin-top: 0.3rem;
+      }
+    }
+
+    &-description {
+      border-bottom: 1px solid $mercury;
+      padding-bottom: 0.5rem;
+      margin-bottom: 1.5rem;
+
+      @include desktop {
+        border-bottom: none;
+      }
+    }
+  }
+
+  &__buttons {
+    @include flex-center-center;
+    flex-direction: column;
+
+    @include tablet {
+      flex-direction: row-reverse;
+      justify-content: flex-end;
+    }
+
+    &-publish {
+      width: 100%;
+
+      @include tablet {
+        width: initial;
+      }
+
+      button {
+        position: relative;
+        width: 100%;
+        font-size: 0.73rem;
+        font-weight: 700;
+        letter-spacing: 0.03rem;
+        background: $blue;
+        color: $white;
+        text-align: center;
+        line-height: 2rem;
+        border: none;
+        border-radius: 0.25rem;
+        transition: background-color 0.2s;
+
+        &:hover {
+          background: $dark-blue;
+          cursor: pointer;
+        }
+
+        @include tablet {
+          height: 2.6rem;
+          font-size: 0.7rem;
+          width: 10rem;
+        }
+
+        @include desktop {
+          margin: auto;
+        }
+
+        img {
+          position: absolute;
+          left: 0.6rem;
+          top: 0.6rem;
+          width: 1.1rem;
+
+          @include tablet {
+            top: 0.75rem;
+          }
+        }
+      }
+    }
+  }
+
+  &__button-link {
+    text-decoration: none;
+  }
+
+  &__cancel-link {
+    color: $blue;
+    font-size: 0.8rem;
+    font-weight: 700;
+    text-align: center;
+    text-decoration: none;
+  }
+
+  &__cancel-button {
+    @include flex-center-center;
+    width: 15rem;
+    font-size: 1rem;
+    margin: 2rem 0;
+
+    @include tablet {
+      @include flex-center-center;
+      margin: 0;
+      margin-left: auto;
+      margin-right: 2rem;
+      height: 2.6rem;
+      font-size: 0.7rem;
+      width: 10rem;
+      order: 0;
+    }
   }
 }
 
-.right-section {
+.title {
   @include desktop {
-    border-left: 1px solid $mercury;
+    padding-top: 0;
   }
 }
