@@ -1,0 +1,14 @@
+useParams to be placed in App.js
+    this will listen to the URL changing
+
+
+In next videos component, map through the array and create a set of Link tags. 
+These tags will generate links that include the videoId.
+When a link is clicked, the URL updates to include the videoId
+
+When the URL updates, useParams in App.js "listens" for the change and updates.
+
+useEffect can be used to run code when the useParams object is updated (via useEffect dependencies).
+The useEffect hook can be used at this point to fetch the selected video data.
+
+Update state with this new data. Page reloads.
