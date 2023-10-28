@@ -24,7 +24,7 @@ const NextVideos = ({ videosList, setSelectedVideo }) => {
         <h2>NEXT VIDEOS</h2>
 
         {videosList.map((video) => (
-          <a href={"/video/" + video.id}>
+         <Link to="/{video.id}">
             <div
               className="next-videos__card"
               key={video.id}
@@ -40,7 +40,7 @@ const NextVideos = ({ videosList, setSelectedVideo }) => {
                 </div>
               </div>
             </div>
-          </a>
+          </Link>
         ))}
       </section>
     </div>
