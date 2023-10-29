@@ -47,7 +47,7 @@ function Home() {
         console.error(err);
         navigate("/video/notfound/error");
       });
-  }, []);
+  }, [videoLinkId]);
 
   return (
     <div className="App">
