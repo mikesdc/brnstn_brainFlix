@@ -1,17 +1,16 @@
 import React from "react";
 import "./NextVideos.scss";
-import axios from "axios";
 import { Link } from "react-router-dom";
 
-const NextVideos = ({ videosList, setSelectedVideo }) => {
+const NextVideos = ({ videosList }) => {
   return (
     <div className="right-section">
       <section className="next-videos">
         <h2>NEXT VIDEOS</h2>
 
         {videosList.map((video) => (
-          <Link to={`/video/${video.id}`}>
-            <div className="next-videos__card" key={video.id}>
+          <Link to={`/video/${video.id}`} key={video.id}>
+            <div className="next-videos__card">
               <div className="next-videos__image">
                 <img src={video.image} alt="" />
               </div>
