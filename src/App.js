@@ -2,6 +2,7 @@ import "./App.scss";
 import Header from "./components/Header/Header";
 import { useEffect, useState } from "react";
 import { BrowserRouter, Routes, Route, useParams } from "react-router-dom";
+import videoDetailsTOBEDELETED from "./video-details.json";
 
 //pages
 import Home from "./pages/Home/Home";
@@ -64,17 +65,19 @@ function App() {
   const [isLoading, setIsLoading] = useState(true);
   const [detailsArrayCompiling, setDetailsArrayCompiling] = useState(true);
 
-  // const { videoLinkId } = useParams();
+  
 
 
 
 
-
+  setVideoDetailsList(videoDetailsTOBEDELETED);
 
   
 
   let modifiedVideoList = [];
 
+
+  //this useEffect gets the basic videos list used in NextVideos component and sets videoList state
   useEffect(() => {
     axios
       .get(
@@ -88,53 +91,14 @@ function App() {
       );
   }, []);
 
-  useEffect(() => {
-    if (videosList) {
-      console.log("second useEffect: ", videosList);
-
-      const detailsArray = [];
-
-      const compileVideoDetailsList1111 = new Promise((resolve, reject) => {
-        videosList.forEach((video) => {
-          axios
-            .get(
-              `https://project-2-api.herokuapp.com/videos/${video.id}/?api_key=e8ea54d0-3cd7-4281-8936-65a324902fec`
-            )
-            .then((res) => {
-              detailsArray.push(res.data);
-            })
-            .catch((error) => {
-              console.log("error on second axios call: ", error.response);
-            });
-        });
-        resolve(detailsArray);
-      });
-
-      compileVideoDetailsList1111.then((result) => {
-        console.log("Promise: VideoDetailsArray test complete: ", result);
-        setVideoDetailsList(result);
-        setSelectedVideo(result[0])
-        console.log("Promise: setting selected video: ", result[0]);
-        console.log(result);
-        // setDetailsArrayCompiling(false);
-      });
 
 
-const setSelectedVideo11111 = new Promise((resolve, reject) => {
-
-})
+  const { videoLinkId } = useParams();
 
 
-    }
-  }, [videosList]);
 
-  useEffect(() => {
-    if (!detailsArrayCompiling) {
-      console.log("third useEffect: ", videoDetailsList);
-      setSelectedVideo(videoDetailsList[0]);
-      setIsLoading(false);
-    }
-  }, [detailsArrayCompiling]);
+
+
 
   return (
     <BrowserRouter>

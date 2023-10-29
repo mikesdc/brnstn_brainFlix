@@ -1,5 +1,5 @@
 useParams to be placed in App.js
-    this will listen to the URL changing
+    this will watch the URL changes if videosLinkId is in play
 
 
 In next videos component, map through the array and create a set of Link tags. 
