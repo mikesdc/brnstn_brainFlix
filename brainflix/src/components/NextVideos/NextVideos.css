@@ -1,0 +1,292 @@
+@font-face {
+  font-family: "Avenir Next";
+  src: url("../../assets/fonts/AvenirNextLTPro-Regular.otf") format("opentype");
+  font-weight: 400;
+}
+@font-face {
+  font-family: "Avenir Next";
+  src: url("../../assets/fonts/AvenirNextLTPro-Bold.otf") format("opentype");
+  font-weight: 700;
+}
+@font-face {
+  font-family: "Avenir Next";
+  src: url("../../assets/fonts/AvenirNextLTPro.ttf") format("truetype");
+  font-weight: 400;
+}
+@font-face {
+  font-family: "Avenir Next";
+  src: url("../../assets/fonts/AvenirNextLTProBold.ttf") format("truetype");
+  font-weight: 700;
+}
+* {
+  font-family: "Avenir Next";
+}
+
+/* http://meyerweb.com/eric/tools/css/reset/ 
+   v2.0 | 20110126
+   License: none (public domain)
+   ----code below this line---
+*/
+html,
+body,
+div,
+span,
+applet,
+object,
+iframe,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+blockquote,
+pre,
+a,
+abbr,
+acronym,
+address,
+big,
+cite,
+code,
+del,
+dfn,
+em,
+img,
+ins,
+kbd,
+q,
+s,
+samp,
+small,
+strike,
+strong,
+sub,
+sup,
+tt,
+var,
+b,
+u,
+i,
+center,
+dl,
+dt,
+dd,
+ol,
+ul,
+li,
+fieldset,
+form,
+label,
+legend,
+table,
+caption,
+tbody,
+tfoot,
+thead,
+tr,
+th,
+td,
+article,
+aside,
+canvas,
+details,
+embed,
+figure,
+figcaption,
+footer,
+header,
+hgroup,
+menu,
+nav,
+output,
+ruby,
+section,
+summary,
+time,
+mark,
+audio,
+video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 100%;
+  vertical-align: baseline;
+}
+
+/* HTML5 display-role reset for older browsers */
+article,
+aside,
+details,
+figcaption,
+figure,
+footer,
+header,
+hgroup,
+menu,
+nav,
+section {
+  display: block;
+}
+
+ol,
+ul {
+  list-style: none;
+}
+
+blockquote,
+q {
+  quotes: none;
+}
+
+blockquote:before,
+blockquote:after,
+q:before,
+q:after {
+  content: "";
+  content: none;
+}
+
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+/* 
+   ----code above this line---
+  http://meyerweb.com/eric/tools/css/reset/ 
+   v2.0 | 20110126
+   License: none (public domain)
+
+*/
+.page-header {
+  font-size: 1.5rem;
+  line-height: 2rem;
+  font-weight: 700;
+}
+@media only screen and (min-width: 768px) {
+  .page-header {
+    font-size: 2.0625rem;
+    line-height: 2.75rem;
+  }
+}
+
+.section-header {
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  line-height: 1.25rem;
+  font-weight: 700;
+}
+
+.subheader {
+  font-size: 0.81rem;
+  line-height: 1.13rem;
+  font-weight: 700;
+}
+@media only screen and (min-width: 768px) {
+  .subheader {
+    font-size: 0.875rem;
+    line-height: 1.375rem;
+  }
+}
+
+.body-copy {
+  font-size: 0.81rem;
+  line-height: 1.13rem;
+  font-weight: 400;
+}
+@media only screen and (min-width: 768px) {
+  .body-copy {
+    font-size: 0.875rem;
+    line-height: 1.375rem;
+  }
+}
+
+.labels,
+.buttons {
+  font-size: 0.63rem;
+  text-transform: uppercase;
+  line-height: 1.25rem;
+  font-weight: 700;
+}
+@media only screen and (min-width: 768px) {
+  .labels,
+  .buttons {
+    font-size: 0.75rem;
+  }
+}
+
+.next-videos {
+  padding: 1rem;
+}
+@media only screen and (min-width: 768px) {
+  .next-videos {
+    padding: 1.8rem 2.5rem;
+  }
+}
+.next-videos h2 {
+  padding: 0 0 0.7rem 0;
+  font-size: 0.8rem;
+  color: #afafaf;
+}
+@media only screen and (min-width: 768px) {
+  .next-videos h2 {
+    padding-bottom: 0.79rem;
+  }
+}
+.next-videos a {
+  text-decoration: none;
+}
+.next-videos__card {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  gap: 1rem;
+  box-sizing: border-box;
+  padding: 0.3rem 0;
+  transition: background-color 0.2s;
+}
+.next-videos__card:hover {
+  background-color: #fafafa;
+  border-radius: 0.5rem;
+  cursor: pointer;
+}
+@media only screen and (min-width: 768px) {
+  .next-videos__card {
+    padding: 0.76rem 0;
+  }
+}
+.next-videos__image {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.next-videos img {
+  width: 6.5rem;
+  height: 4rem;
+  -o-object-fit: cover;
+     object-fit: cover;
+  border-radius: 0.3rem;
+}
+@media only screen and (min-width: 768px) {
+  .next-videos img {
+    width: 6.8rem;
+  }
+}
+.next-videos__details {
+  font-size: 0.8rem;
+  color: #323232;
+}
+@media only screen and (min-width: 768px) {
+  .next-videos__details {
+    font-size: 0.86rem;
+    width: 11rem;
+  }
+}
+.next-videos__details-title {
+  padding-bottom: 0.4rem;
+  font-weight: 700;
+  line-clamp: 2;
+  text-overflow: ellipsis;
+}/*# sourceMappingURL=NextVideos.css.map */
