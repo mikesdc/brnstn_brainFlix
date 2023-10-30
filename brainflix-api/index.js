@@ -1,7 +1,6 @@
 const express = require("express");
 const app = express();
 const cors = require("cors");
-const fs = require("fs");
 const uuidv4 = require("uuid");
 
 function uuid() {
@@ -23,55 +22,16 @@ console.log("BACKEND_URL: ", BACKEND_URL);
 app.use(cors({ origin: CORS_ORIGIN }));
 app.use(express.json());
 
-function readBasicVideosList() {
-  const basicVideosFile = fs.readFileSync("data/videos.json");
-  const basicVideosData = JSON.parse(basicVideosFile);
-  return basicVideosData;
-}
-
-function filterDetailedVideosList(videoId) {
-  const detailedVideosFile = fs.readFileSync("data/video-details.json");
-  const detailedVideosData = JSON.parse(detailedVideosFile);
-  const filteredList = detailedVideosData.filter((video) => {
-    return video.id == videoId;
-  });
-  return JSON.stringify(filteredList);
-}
-
-function writeBasicVideosList(data) {
-  const stringifiedData = JSON.stringify(data);
-  fs.writeFileSync("data/videos.json", stringifiedData);
-}
-
 // setting up routes
+
+const videosRoutes = require("./routes/videos");
+app.use("/videos", videosRoutes);
 
 app.get("/", (req, res) => {
   console.log("here");
   console.log(uuidv4.v4());
   res.send("Welcome to the videos API");
 });
-
-app.get("/videos", (req, res) => {
-  console.log("Basic Videos List requested");
-  res.json(readBasicVideosList());
-});
-
-app.get("/videos/:videoId", (req, res) => {
-  const videoId = req.params.videoId;
-  let selectedVideo = filterDetailedVideosList(videoId);
-  res.send(selectedVideo);
-});
-
-
-
-
-
-
-
-
-
-
-
 
 app.listen(PORT, () => {
   console.log(`Listening on port ${PORT}`);
