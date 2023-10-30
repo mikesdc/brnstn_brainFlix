@@ -15,6 +15,7 @@ PORT = process.env.PORT || 8081;
 
 app.use(cors({ origin: CORS_ORIGIN }));
 app.use(express.json());
+app.use(express.static('public'));
 
 // setting up routes
 

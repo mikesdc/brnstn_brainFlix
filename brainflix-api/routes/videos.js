@@ -47,6 +47,11 @@ router.get("/", (req, res) => {
   res.json(readBasicVideosList());
 });
 
+router.get("/video/image", (req, res) => {
+    res.json(readBasicVideosList());
+  });
+  
+
 router.get("/:videoId", (req, res) => {
   const videoId = req.params.videoId;
   let selectedVideo = filterDetailedVideosList(videoId);
@@ -58,7 +63,7 @@ router.post("/", (req, res) => {
     id: uuidv4.v4(),
     title: req.body.title,
     channel: "Placeholder-Channel-Name",
-    image: "https://i.imgur.com/DDJNZNw.jpg",
+    image: "//localhost:8080/images/bike.jpg",
     description: req.body.desc,
     views: "9,999",
     likes: "1,111",
