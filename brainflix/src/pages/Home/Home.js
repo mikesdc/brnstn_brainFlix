@@ -7,6 +7,8 @@ import { useState, useEffect } from "react";
 import { useParams, useNavigate } from "react-router-dom";
 import axios from "axios";
 
+const API_URL = process.env.REACT_APP_API_URL;
+
 function Home() {
   const [selectedVideo, setSelectedVideo] = useState([null]);
   const [videosList, setVideosList] = useState([]);
@@ -30,6 +32,7 @@ function Home() {
           .then((res) => {
             setSelectedVideo(res.data);
             setLoading(false);
+            console.log(API_URL);
           });
       });
   }, [randomKey]);
