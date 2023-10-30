@@ -29,10 +29,13 @@ function readBasicVideosList() {
   return basicVideosData;
 }
 
-function filterDetailedVideosList() {
+function filterDetailedVideosList(videoId) {
   const detailedVideosFile = fs.readFileSync("data/video-details.json");
-  const basicVideosData = JSON.parse(basicVideosFile);
-  return basicVideosData;
+  const detailedVideosData = JSON.parse(detailedVideosFile);
+  const filteredList = detailedVideosData.filter((video) => {
+    return video.id == videoId;
+  });
+  return JSON.stringify(filteredList);
 }
 
 function writeBasicVideosList(data) {
@@ -54,22 +57,21 @@ app.get("/videos", (req, res) => {
 });
 
 app.get("/videos/:videoId", (req, res) => {
-  console.log("Video ID provided");
   const videoId = req.params.videoId;
-  console.log(videoId);
-
-  const detailedVideosFile = fs.readFileSync("data/video-details.json");
-  const detailedVideosData = JSON.parse(detailedVideosFile);
-  console.log(detailedVideosData);
-
-  const filteredList = detailedVideosData.filter((video) => {
-    return video.id == videoId;
-  });
-
-  console.log("FILTERED LIST: ", filteredList);
-  const selectedVideo = JSON.stringify(filteredList);
+  let selectedVideo = filterDetailedVideosList(videoId);
   res.send(selectedVideo);
 });
+
+
+
+
+
+
+
+
+
+
+
 
 app.listen(PORT, () => {
   console.log(`Listening on port ${PORT}`);
