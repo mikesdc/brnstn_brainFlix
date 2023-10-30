@@ -18,23 +18,17 @@ function Home() {
   const [randomKey, setRandomKey] = useState(null);
 
   useEffect(() => {
-    axios
-      .get(
-        "https://project-2-api.herokuapp.com/videos/?api_key=e8ea54d0-3cd7-4281-8936-65a324902fec"
-      )
-      .then((response) => {
-        setVideosList(response.data);
-        const firstVideoId = response.data[0].id;
-        axios
-          .get(
-            `https://project-2-api.herokuapp.com/videos/${firstVideoId}/?api_key=e8ea54d0-3cd7-4281-8936-65a324902fec`
-          )
-          .then((res) => {
-            setSelectedVideo(res.data);
-            setLoading(false);
-            console.log(API_URL);
-          });
-      });
+    axios.get(API_URL + "/videos").then((response) => {
+      setVideosList(response.data);
+      const firstVideoId = response.data[0].id;
+      axios
+        .get(API_URL + "/videos/" + firstVideoId)
+        .then((res) => {
+          setSelectedVideo(res.data[0]);
+          setLoading(false);
+          console.log(API_URL);
+        });
+    });
   }, [randomKey]);
 
   let modifiedVideoList = videosList.filter(
@@ -47,11 +41,14 @@ function Home() {
   useEffect(() => {
     if (videoLinkId) {
       axios
-        .get(
-          `https://project-2-api.herokuapp.com/videos/${videoLinkId}/?api_key=e8ea54d0-3cd7-4281-8936-65a324902fec`
-        )
+        .get(API_URL + "/videos/" + videoLinkId)
         .then((response) => {
-          setSelectedVideo(response.data);
+          if (response.data[0] !== undefined) {
+            console.log("APIRESPONSE: ", response.data[0]);
+            setSelectedVideo(response.data[0]);
+          } else {
+            navigate("/video/notfound/error");
+          }
         })
         .catch((err) => {
           console.error(err);

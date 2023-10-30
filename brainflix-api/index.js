@@ -29,6 +29,12 @@ function readBasicVideosList() {
   return basicVideosData;
 }
 
+function filterDetailedVideosList() {
+  const detailedVideosFile = fs.readFileSync("data/video-details.json");
+  const basicVideosData = JSON.parse(basicVideosFile);
+  return basicVideosData;
+}
+
 function writeBasicVideosList(data) {
   const stringifiedData = JSON.stringify(data);
   fs.writeFileSync("data/videos.json", stringifiedData);
@@ -39,12 +45,30 @@ function writeBasicVideosList(data) {
 app.get("/", (req, res) => {
   console.log("here");
   console.log(uuidv4.v4());
-  res.status(500).send("sending");
+  res.send("Welcome to the videos API");
 });
 
 app.get("/videos", (req, res) => {
   console.log("Basic Videos List requested");
   res.json(readBasicVideosList());
+});
+
+app.get("/videos/:videoId", (req, res) => {
+  console.log("Video ID provided");
+  const videoId = req.params.videoId;
+  console.log(videoId);
+
+  const detailedVideosFile = fs.readFileSync("data/video-details.json");
+  const detailedVideosData = JSON.parse(detailedVideosFile);
+  console.log(detailedVideosData);
+
+  const filteredList = detailedVideosData.filter((video) => {
+    return video.id == videoId;
+  });
+
+  console.log("FILTERED LIST: ", filteredList);
+  const selectedVideo = JSON.stringify(filteredList);
+  res.send(selectedVideo);
 });
 
 app.listen(PORT, () => {
