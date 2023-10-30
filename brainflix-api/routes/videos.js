@@ -18,7 +18,6 @@ function filterDetailedVideosList(videoId) {
 }
 
 function writeVideos(data) {
-  console.log("Posted Data: ", data);
   const basicDetails = (({ id, channel, title, image }) => ({
     id,
     channel,
@@ -26,31 +25,25 @@ function writeVideos(data) {
     image,
   }))(data);
 
-  console.log("basicdeets", basicDetails);
-
   const basicVideosFile = fs.readFileSync("./data/videos.json");
   const basicVideosData = JSON.parse(basicVideosFile);
-  const newBasic = { ...basicVideosData, ...basicDetails };
+  const newBasic = [...basicVideosData, basicDetails];
   const stringifiedBasic = JSON.stringify(newBasic);
-  console.log(stringifiedBasic);
-  fs.writeFileSync("./data/videos.json", stringifiedBasic);
+    fs.writeFileSync("./data/videos.json", stringifiedBasic);
 
   const fullDetails = data;
 
-  console.log("fulldeets", fullDetails);
-
   const detailedVideosFile = fs.readFileSync("./data/video-details.json");
   const detailedVideosData = JSON.parse(detailedVideosFile);
-  const newDetailed = { ...detailedVideosData, ...fullDetails };
+  console.log("detailedVideos: ", detailedVideosData);
+  const newDetailed = [...detailedVideosData, fullDetails];
   const stringifiedFull = JSON.stringify(newDetailed);
-
   fs.writeFileSync("./data/video-details.json", stringifiedFull);
 }
 
 //routes
 
 router.get("/", (req, res) => {
-  console.log("Basic Videos List requested");
   res.json(readBasicVideosList());
 });
 
@@ -90,8 +83,6 @@ router.post("/", (req, res) => {
       },
     ],
   };
-
-  console.log(newVideo);
 
   writeVideos(newVideo);
 });

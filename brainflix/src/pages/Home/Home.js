@@ -26,7 +26,6 @@ function Home() {
         .then((res) => {
           setSelectedVideo(res.data[0]);
           setLoading(false);
-          console.log(API_URL);
         });
     });
   }, [randomKey]);
@@ -44,7 +43,6 @@ function Home() {
         .get(API_URL + "/videos/" + videoLinkId)
         .then((response) => {
           if (response.data[0] !== undefined) {
-            console.log("APIRESPONSE: ", response.data[0]);
             setSelectedVideo(response.data[0]);
           } else {
             navigate("/video/notfound/error");

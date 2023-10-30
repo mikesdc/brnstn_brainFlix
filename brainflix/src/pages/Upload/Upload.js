@@ -21,7 +21,6 @@ function Upload() {
 
   function handleSubmit(e) {
     alert("Video has been uploaded!");
-    console.log(title, desc);
     axios.post(API_URL + "/videos", {
       title: title,
       desc: desc
