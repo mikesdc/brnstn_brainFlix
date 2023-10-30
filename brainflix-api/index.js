@@ -3,10 +3,6 @@ const app = express();
 const cors = require("cors");
 const uuidv4 = require("uuid");
 
-function uuid() {
-  uuidv4.v4();
-}
-
 // setting up env
 
 require("dotenv").config();

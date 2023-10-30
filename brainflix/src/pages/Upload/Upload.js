@@ -3,11 +3,29 @@ import uploadImg from "../../assets/images/Upload-video-preview.jpg";
 import publishIcon from "../../assets/icons/publish.svg";
 import Header from "../../components/Header/Header";
 import { Link } from "react-router-dom";
+import axios from "axios";
+import { useRef, useState } from "react";
+
+const API_URL = process.env.REACT_APP_API_URL;
 
 function Upload() {
-  
-  function handleSubmit() {
+  const [title, setTitle] = useState("");
+  const [desc, setDesc] = useState("");
+
+  const handleTitleChange = (e) => {
+    setTitle(e.target.value);
+  };
+  const handleDescChange = (e) => {
+    setDesc(e.target.value);
+  };
+
+  function handleSubmit(e) {
     alert("Video has been uploaded!");
+    console.log(title, desc);
+    axios.post(API_URL + "/videos", {
+      title: title,
+      desc: desc
+    });
   }
 
   return (
@@ -27,6 +45,8 @@ function Upload() {
             <div className="upload__forms-title">
               <label htmlFor="title">TITLE YOUR VIDEO</label>
               <input
+                onChange={handleTitleChange}
+                value={title}
                 type="text"
                 id="title"
                 name="title"
@@ -38,6 +58,8 @@ function Upload() {
               <label htmlFor="desc">ADD A VIDEO DESCRIPTION</label>
               <textarea
                 placeholder="Add a description to your video"
+                onChange={handleDescChange}
+                value={desc}
                 id="desc"
                 name="desc"
               />
@@ -57,7 +79,7 @@ function Upload() {
               <button>
                 <img src={publishIcon} alt="comment icon" />
                 PUBLISH
-              </button>{" "}
+              </button>
             </Link>
           </div>
           <div className="upload__cancel-button">
